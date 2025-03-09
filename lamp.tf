@@ -19,6 +19,8 @@ resource "yandex_compute_instance_group" "group1" {
     network_interface {
       network_id = yandex_vpc_network.homework.id
       subnet_ids = ["${yandex_vpc_subnet.public.id}"]
+      nat = true
+
     }
   
     metadata = {
@@ -40,6 +42,9 @@ resource "yandex_compute_instance_group" "group1" {
     zones = [var.cloud_provider.zone]
   }
 
+  load_balancer {
+    target_group_name = "target-nlb"
+  }
   deploy_policy {
     max_unavailable = 2
     max_expansion   = 3
@@ -52,6 +57,30 @@ resource "yandex_compute_instance_group" "group1" {
     http_options {
       path = "/"
       port = 80
+    }
+  }
+}
+
+resource "yandex_lb_network_load_balancer" "nlb" {
+  name = "my-network-load-balancer"
+
+  listener {
+    name = "my-listener"
+    port = 80
+    external_address_spec {
+      ip_version = "ipv4"
+    }
+  }
+
+  attached_target_group {
+    target_group_id = yandex_compute_instance_group.group1.load_balancer.0.target_group_id
+
+    healthcheck {
+      name = "http"
+      http_options {
+        port = 80
+        path = "/"
+      }
     }
   }
 }

@@ -36,3 +36,39 @@
 - [Compute instance group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance_group).
 - [Network Load Balancer](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/lb_network_load_balancer).
 - [Группа ВМ с сетевым балансировщиком](https://cloud.yandex.ru/docs/compute/operations/instance-groups/create-with-balancer).
+
+### Ответ
+
+Созданный Bucket
+
+![Рисунок1](img/img1.jpg)
+
+Картинка
+
+![Рисунок2](img/img2.jpg)
+
+Группа ВМ
+
+![Рисунок3](img/img3.jpg)
+
+Созданные ВМ
+
+![Рисунок4](img/img4.jpg)
+
+Сетевой балансировщик
+
+![Рисунок5](img/img5.jpg)
+
+Проверка балансировшика. Его адрес 84.252.135.61
+
+![Рисунок6](img/img6.jpg)
+
+Удаляем ВМ.
+
+![Рисунок7](img/img7.jpg)
+
+Проверяем работу балансирощика
+
+![Рисунок8](img/img8.jpg)
+
+![Рисунок9](img/img9.jpg)

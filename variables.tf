@@ -137,3 +137,43 @@ variable "name_picture" {
   default = "lake.jpg"
   description = "Name picture"
 }
+
+
+variable "lamp-family" {
+    type = string
+    default = "lamp"
+}
+
+variable "vm_lamp" {
+    type = object({
+      name = string
+      platform_id = string
+    })
+    default = {
+      name = "lamp-group"
+      platform_id = "standard-v3"
+    }
+}
+
+variable "resources_lamp" {
+    type = object({
+      cores = number
+      memory = number
+      core_fraction = number
+    })
+    default = {
+      core_fraction = 20
+      memory = 2
+      cores = 2
+    }
+}
+variable "nat-lamp" {
+    type = bool
+    default = true
+}
+
+variable "lamp_image" {
+  type = string
+  default = "fd8g59ke0tv5mtdfiehe"
+  
+}

@@ -13,7 +13,7 @@ resource "yandex_iam_service_account_static_access_key" "st-static-key" {
 }
 
 resource "yandex_iam_service_account" "vmgroup" {
-  name = "vm_group" 
+  name = "vm-group" 
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "editor" {
